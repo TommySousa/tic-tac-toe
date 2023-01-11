@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+}
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh
+}
+
+.board-tiles{
+    display: grid;
+    grid-template-columns: repeat(3, 150px) ;
+    grid-template-rows: repeat(3, 150px) ;
+}
+
+.tile{
+    border: 1px solid red;
+    height: 150px;
+    width: 150px;
+}
