@@ -16,11 +16,9 @@ const GameBoard = (() => {
 
 
 const Player = (symbol) => {
-    
     const getSymbol = () => symbol;
      
     const playSquare = () => {
-
         let tiles = document.querySelectorAll('.tile')
         tiles.forEach(tile => {
             tile.addEventListener('click', (e) => {
@@ -32,5 +30,28 @@ const Player = (symbol) => {
         });
      };
 
-    return {getSymbol, playSquare};
+    return {playSquare};
 };
+
+const Game = ((player1, player2) => {
+
+    let round = 1;
+    let player = 1;
+
+    const playRound = () => {
+        if(player === 1){
+            round = round+1;
+            player1.playSquare();
+            player = 2;
+
+        } else if (player === 2){
+            round = round+1;
+            player2.playSquare();
+            player = 1;
+        }
+    };
+
+
+return {playRound};
+    
+})(Player('X'), Player('0'));
