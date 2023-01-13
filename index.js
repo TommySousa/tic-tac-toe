@@ -124,14 +124,16 @@ const createGame = (playerA, playerB) => {
         },
         clickRestart : (evt) =>{
             onRestart(gameContext, evt);
-        }
+         }
 
     };
 
     const tiles = document.querySelectorAll('.tile');
     const restartBtn = document.getElementById('restart');
     
-    
+    // const clickRestart = (evt) =>{
+    //     onRestart(gameContext, evt);
+    // }
     // add event listeners
     tiles.forEach(tile => {
         tile.addEventListener('click', gameContext.clickEventFn);
@@ -161,6 +163,7 @@ const isGameOver = (gameContext) =>{
 };
 
 const onRestart = (gameContext) =>{
+    document.getElementById('restart').removeEventListener('click', gameContext.clickRestart)
     const newCtx = createGame(gameContext.playerA, gameContext.playerB);
     renderGame(newCtx.gameBoard);   
 }
